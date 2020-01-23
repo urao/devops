@@ -17,6 +17,7 @@ git commit
 git log
 git log -p
 git log --pretty=oneline
+git log --oneline
 ```
 
 ```
@@ -24,4 +25,13 @@ git branch
 git branch <branch_name>
 git branch -d <branch_name>
 git checkout <branch_name>
+git merge <branch_name>
+```
+
+```
+git merge <branch_name>
+git status
+Fix conflicts and run `git commit`
+git log -2    
+git push <remote_name> <branch>
 ```
