@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+  gitlab:
+    container_name: gitlab
+    image: gitlab/gitlab:latest
+    hostname: 'gitlab.example.net'
+    network_mode: bridge
+    dns:
+      - 8.8.8.8
+    ports:
+      - "6080:80"
+      - "60443:443"
+      - "5022:22"
+    volumes:
+      - "/srv/gitlab/config:/etc/gitlab"
+      - "/srv/gitlab/logs:/var/log/gitlab"
+      - "/srv/gitlab/data:/var/opt/gitlab"
+      
+  jenkins:
+    container_name: jenkins
+    image: ajaut/jenkins:latest
+    user: root
+    network_mode: bridge
+    dns:
+      - 8.8.8.8
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - "/var/jenkins_home:/var/jenkins_home:rw"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/usr/bin/docker:/usr/bin/docker:ro"
