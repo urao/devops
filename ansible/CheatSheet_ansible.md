@@ -23,5 +23,11 @@ End a play
 - fail:
 ```
 
+Run playbook from a docker container
+```
+ansible-playbook -i 192.168.0.190, -u root -e "@./newhost.json" -v simple_pb.yml
+docker run -it <container_name> update_dhcpd_conf.yml -i 192.168.0.190, -e "@./newhost.json"
+```
+
 ## References
 [Ansible CheatSheet](https://gist.github.com/AdamOssenford/344ffe76db0a52e9051a)
